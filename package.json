@@ -9,12 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.3.1",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@solana/web3.js": "^1.55.0",
+    "@supabase/supabase-js": "^1.35.6",
+    "bs58": "^5.0.0",
+    "framer-motion": "^7.2.1",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hot-toast": "^2.3.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   }
 }
