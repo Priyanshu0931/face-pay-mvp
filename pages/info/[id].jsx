@@ -65,10 +65,10 @@ const Index = () => {
           >
             Send
           </button>
-          <button className="w-20 h-12 rounded-lg bg-green-400">Recive</button>
+          <button className="w-20 h-12 rounded-lg bg-green-400">Receive</button>
         </div>
         <div className="mt-4">
-          <h1 className="font-bold text-lg">Transction</h1>
+          <h1 className="font-bold text-lg">Transaction</h1>
         </div>
         <Toaster />
       </div>
