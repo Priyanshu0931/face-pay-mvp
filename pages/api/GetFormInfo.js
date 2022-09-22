@@ -12,5 +12,5 @@ export default async function PostInfo(req, res) {
     password: password,
     regno: reg_no,
   });
-  res.status(200).json({ added: data });
+  res.status(200).json({ added: "👍" });
 }
