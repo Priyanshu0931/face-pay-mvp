@@ -5,7 +5,7 @@ import { supabase } from "../../config";
 export default function PostInfo(req, res) {
   const { reg_no, name, email, phone, password } = req.body;
 
-  supabase.from("aran").insert({
+  supabase.from("aryans").insert({
     name: name,
     email: email,
     phone: phone,
