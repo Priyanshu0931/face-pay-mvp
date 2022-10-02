@@ -22,11 +22,11 @@ const Index = () => {
           .eq("uuid", router.query?.id)
           .then(async (r) => {
             console.log(r);
-            // setData(r.data[0]);
-            // let bal =
-            //   (await getAccountBalance(r.data[0].wallet.pubkey)) /
-            //   LAMPORTS_PER_SOL;
-            // setBalance(bal);
+            setData(r.data[0]);
+            let bal =
+              (await getAccountBalance(r.data[0].wallet.pubkey)) /
+              LAMPORTS_PER_SOL;
+            setBalance(bal);
           });
       }
     };
