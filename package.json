@@ -12,6 +12,8 @@
     "@chakra-ui/react": "^2.3.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@headlessui/react": "^1.7.3",
+    "@heroicons/react": "^2.0.11",
     "@solana/web3.js": "^1.55.0",
     "@supabase/supabase-js": "^1.35.6",
     "bs58": "^5.0.0",
@@ -20,6 +22,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.3.0",
+    "react-webcam": "^7.0.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

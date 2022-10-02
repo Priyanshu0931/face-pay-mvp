@@ -7,12 +7,15 @@ import { toast, Toaster } from "react-hot-toast";
 import { Keypair } from "@solana/web3.js";
 import * as bs58 from "bs58";
 import { Spinner } from "../components/spinner";
+import { WebCam } from "./WebCam";
 export const Login = () => {
   const [auth, setAuth] = useState("Sign Up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authState, setAuthState] = useState("");
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [uuid, setUUID] = useState("");
   const router = useRouter();
   const HandleAuth = () => {
     if (auth === "Sign Up") {
@@ -25,6 +28,7 @@ export const Login = () => {
   const HandleUserAuth = async () => {
     setAuthState("Genrating id");
     const uuid = uuidv4();
+    setUUID(uuid);
     setAuthState("Genrating Wallet....");
     const Walletjson = await CreateAccount();
     if (auth === "Sign Up") {
@@ -41,9 +45,7 @@ export const Login = () => {
           wallet: Walletjson,
         })
         .then(() => {
-          toast.success("Great!!, Sign you In");
           setAuthState("Redirecting to wallet");
-          router.push(`/info/${uuid}`);
         });
     } else {
       setAuth("Sign Up");
@@ -57,8 +59,10 @@ export const Login = () => {
       pubkey: keyPair.publicKey.toString(),
     };
   };
+
   return (
     <>
+      <WebCam open={open} uuid={uuid} setOpen={setOpen} />
       <div className="flex min-h-screen">
         <div className="flex flex-1 flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
@@ -171,6 +175,7 @@ export const Login = () => {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
+                    setOpen(true);
                     HandleUserAuth();
                     setLoading(true);
                   }}
