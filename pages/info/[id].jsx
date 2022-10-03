@@ -8,10 +8,12 @@ import {
   LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
 import { toast, Toaster } from "react-hot-toast";
+import { WebCam2 } from "../../components/WebCam2";
 const Index = () => {
   const [data, setData] = useState(null);
   const router = useRouter();
   const [balance, setBalance] = useState(0);
+  const [open, setOpen] = useState(false);
   console.log(router.query?.id);
   useEffect(() => {
     const GetData = async () => {
@@ -38,9 +40,13 @@ const Index = () => {
     console.log(connection.getBalance(publicKey));
     return connection.getBalance(publicKey);
   };
+  const sendMoney = () => {
+    setOpen(true);
+  };
 
   return (
     <>
+      <WebCam2 open={open} setOpen={setOpen} />
       <div className="flex mt-24 items-center flex-col min-h-screen">
         <h1 className="text-7xl my-3 text-stone-400 font-extrabold">
           {balance} Sol
@@ -61,8 +67,8 @@ const Index = () => {
         </h1>
         <div className="flex justify-between space-x-10">
           <button
+            onClick={sendMoney}
             className="w-20 h-12 rounded-lg bg-red-400 disabled:cursor-not-allowed"
-            disabled={balance != 0 ? false : true}
           >
             Send
           </button>

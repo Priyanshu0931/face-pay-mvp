@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Image } from "@chakra-ui/react";
 import { supabase } from "../config/index";
 import { useRouter } from "next/router";
@@ -8,7 +8,10 @@ import { Keypair } from "@solana/web3.js";
 import * as bs58 from "bs58";
 import { Spinner } from "../components/spinner";
 import { WebCam } from "./WebCam";
+import { UserContext } from "../pages/_app";
 export const Login = () => {
+  const remCheck = useContext(UserContext);
+  console.log(remCheck);
   const [auth, setAuth] = useState("Sign Up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -229,6 +232,10 @@ export const Login = () => {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
+                        onChange={(e) => {
+                          console.log(e.target.checked);
+                          remCheck.setRem(true);
+                        }}
                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                       />
                       <label
